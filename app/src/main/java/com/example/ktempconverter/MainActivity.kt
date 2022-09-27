@@ -22,6 +22,9 @@ class MainActivity : AppCompatActivity() {
 
         celciusRadio = findViewById(R.id.celciusRadio) as RadioButton
         fahreinheitRadio = findViewById(R.id.fahreinheitRadio) as RadioButton
+        kelvinRadio = findViewById(R.id.celciusRadio) as RadioButton
+        rankieRadio = findViewById(R.id.fahreinheitRadio) as RadioButton
+
 
         converterButton = findViewById(R.id.converterButton) as Button
         converterButton.setOnClickListener { converter(it) }
@@ -34,6 +37,11 @@ class MainActivity : AppCompatActivity() {
             temp = (temp - 32) * 5/9
         } else if (fahreinheitRadio.isChecked) {
             temp = temp * 9/5 + 32
+        }if(kelvinRadio.isChecked){
+        temp=temp + 273.15
+        }else if(rankieRadio.isChecked){
+        temp = (temp+273.15)*9/5
+        
         }
 
         editText.setText(temp.toString())
